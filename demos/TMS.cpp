@@ -42,12 +42,7 @@ int main(int argc, char const *argv[])
         break;
         case 4 : printf("KMS : 300 , Amount : 3000");
         break;
-    }
-
-
-
-
-    
+    } 
 
     return 0;
 }
