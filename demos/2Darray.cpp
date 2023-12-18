@@ -26,7 +26,5 @@ int main(int argc, char const *argv[])
         }
         printf("subject %d :%d\n",i+1,sum);
     }
-
-
     return 0;
 }
