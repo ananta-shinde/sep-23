@@ -16,12 +16,8 @@ int main(int argc, char const *argv[])
     printf("%d\n",ptr[3]);
     
     realloc(ptr,40);
-
-
     // free(ptr);
     // ptr = NULL;
     // printf("%d\n",ptr[0]);
-
-
     return 0;
 }
