@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 struct Student{
     int rollNo;
     int marks[3];
@@ -40,6 +41,16 @@ struct StudentList
       int capacity = 0;
       Student* slist =(Student*)calloc(1,sizeof(Student));
 
+
+     void saveStudentList()
+     {
+        FILE* studentData = fopen("student.txt","w");
+       for(int i=0;i<capacity+1;i++)
+        {
+            fprintf(studentData,"%d,%d,%d,%d\n",slist[i].rollNo,slist[i].marks[0],slist[i].marks[1],slist[i].marks[2]); 
+        }
+        fclose(studentData);
+     }
      void addStudent()
      {
         Student s;
@@ -53,15 +64,27 @@ struct StudentList
             realloc(slist,(capacity+1)*sizeof(Student));
             slist[capacity] = s;
         }
+
+
         
      }
 
      void printStudentList()
      {
-        for(int i=0;i<capacity+1;i++)
-        {
-            slist[i].printData();
-        }
+         FILE* studentData = fopen("student.txt","r");
+         char data[50];
+         while (fgets(data,sizeof(Student),studentData) != NULL)
+         {
+              char* temp =  strtok(data,",");
+              printf( " %s\n", temp );
+              while( temp != NULL ) {
+                    printf( " %s\n", temp ); //printing each token
+                    temp = strtok(NULL, ",");
+                }
+              
+         }
+         
+         
      }
 
      void getStudentDataByRollNo(int rollNo)
@@ -83,9 +106,11 @@ int main(int argc, char const *argv[])
     StudentList studentlist;
     // studentlist.addStudent();
     // studentlist.addStudent();
+    // studentlist.saveStudentList();
     studentlist.printStudentList();
-    printf("\nEnter student roll no to search");
-    scanf("%d",&roll);
-    studentlist.getStudentDataByRollNo(roll);
+    // studentlist.printStudentList();
+    // printf("\nEnter student roll no to search");
+    // scanf("%d",&roll);
+    // studentlist.getStudentDataByRollNo(roll);
     return 0;
 }
