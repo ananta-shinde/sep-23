@@ -80,11 +80,8 @@ struct StudentList
               while( temp != NULL ) {
                     printf( " %s\n", temp ); //printing each token
                     temp = strtok(NULL, ",");
-                }
-              
-         }
-         
-         
+                }   
+         }   
      }
 
      void getStudentDataByRollNo(int rollNo)
