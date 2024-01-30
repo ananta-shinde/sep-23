@@ -42,7 +42,5 @@ int main(int argc, char const *argv[])
     StudentList studentList;
     studentList.addNewStudent();
     studentList.printList();
-     
-    
     return 0;
 }
